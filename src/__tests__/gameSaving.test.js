@@ -1,4 +1,4 @@
-import GameSavingLoader from '../index.js';
+import GameSavingLoader from '../js/GameSavingLoader.js';
 
 
 test('тест функции GameSavingLoader', () => {
@@ -9,9 +9,8 @@ test('тест функции GameSavingLoader', () => {
       id: 1, name: 'Hitman', level: 10, points: 2000,
     },
   };
-  let expected;
 
   GameSavingLoader.load().then((response) => {
-    expect(response).toEqual(expected);
+    expect(response).toEqual(result);
   });
 });

@@ -2,16 +2,11 @@
 import read from './reader.js';
 // eslint-disable-next-line import/extensions
 import json from './parser.js';
+// eslint-disable-next-line import/extensions
+import GameSaving from './GameSaving.js';
 
 export default class GameSavingLoader {
   static async load() {
-    const buffer = await read();
-    const result = await json(buffer);
-    return JSON.parse(result);
+    return new GameSaving(JSON.parse(await json(await read())));
   }
 }
-
-(async () => {
-  const GameSaving = await GameSavingLoader.load();
-  return GameSaving;
-})();
